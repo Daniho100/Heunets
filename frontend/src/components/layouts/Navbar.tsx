@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import logo from '../../assets/logo.png.webp'
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -7,7 +8,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
       <Link to="/" className="text-2xl font-bold text-green-600">
-        <img src="/src/assets/logo.png.webp" alt="" width={150} height={100}/>
+        <img src={logo} alt="logo" width={150} height={100}/>
       </Link>
 
       <div className="flex space-x-6">
