@@ -31,7 +31,7 @@ const ProjectList: FC<ProjectListProps> = ({ projects, onRefresh }) => {
   const handleUpdate = async () => {
     if (!currentProject) return;
     try {
-      await API.patch(`/projects/${currentProject._id}`, { name, description: desc });
+      await API.put(`/projects/${currentProject._id}`, { name, description: desc });
       setShowEditModal(false);
       setCurrentProject(null);
       onRefresh?.(); 
