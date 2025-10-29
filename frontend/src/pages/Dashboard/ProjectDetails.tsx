@@ -68,7 +68,7 @@ export default function ProjectDetails() {
     }
   };
 
-  const handleEditTask = (task: Task) => {
+  const handleEditTask = async(task: Task) => {
     setCurrentTask(task);
     setTitle(task.title);
     setDesc(task.description || "");
@@ -79,7 +79,7 @@ export default function ProjectDetails() {
   const handleUpdateTask = async () => {
     if (!currentTask) return;
     try {
-      await API.put(`/tasks/${currentTask._id}`, {
+      await API.patch(`/tasks/${currentTask._id}`, {
         title,
         description: desc,
         status,
