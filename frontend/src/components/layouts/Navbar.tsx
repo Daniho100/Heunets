@@ -17,7 +17,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex space-x-6">
           <Link
-            to="/dashboard/home"
+            to="/"
             className="text-gray-700 hover:text-green-600 font-medium transition"
           >
             Home
@@ -77,7 +77,7 @@ export default function Navbar() {
         <div className="md:hidden mt-4 space-y-3">
           <div className="flex flex-col space-y-2">
             <Link
-              to="/dashboard/home"
+              to="/"
               className="text-gray-700 hover:text-green-600 font-medium transition"
               onClick={() => setMenuOpen(false)}
             >

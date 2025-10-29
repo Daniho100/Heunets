@@ -16,8 +16,8 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
-  const [token, setToken] = useState<string | null>(localStorage.getItem("token"));
-  const [user, setUser] = useState<any>(JSON.parse(localStorage.getItem("user") || "null"));
+  const [token, setToken] = useState<string | null>(sessionStorage.getItem("token"));
+  const [user, setUser] = useState<any>(JSON.parse(sessionStorage.getItem("user") || "null"));
 
   useEffect(() => {
     if (token) axiosInstance.defaults.headers.Authorization = `Bearer ${token}`;
@@ -29,8 +29,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     setToken(accessToken);
     setUser(user);
-    localStorage.setItem("token", accessToken);
-    localStorage.setItem("user", JSON.stringify(user));
+    sessionStorage.setItem("token", accessToken);
+    sessionStorage.setItem("user", JSON.stringify(user));
 
     axiosInstance.defaults.headers.Authorization = `Bearer ${accessToken}`;
     navigate("/dashboard");
@@ -42,8 +42,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     setToken(accessToken);
     setUser(user);
-    localStorage.setItem("token", accessToken);
-    localStorage.setItem("user", JSON.stringify(user));
+    sessionStorage.setItem("token", accessToken);
+    sessionStorage.setItem("user", JSON.stringify(user));
 
     axiosInstance.defaults.headers.Authorization = `Bearer ${accessToken}`;
     navigate("/dashboard");
@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = () => {
     setToken(null);
     setUser(null);
-    localStorage.clear();
+    sessionStorage.clear();
     navigate("/login");
   };
 

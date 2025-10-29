@@ -16,9 +16,10 @@ export default function AppRouter() {
     <>
     <Navbar />
     <Routes>
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/" element={<Signup />} />
-
+      <Route path="/sigup" element={<Signup />} />
+      
       <Route
         path="/dashboard"
         element={
@@ -29,7 +30,6 @@ export default function AppRouter() {
       >
         <Route index element={<DashboardHome />} />
         <Route path="projects/:id" element={<ProjectDetails />} />
-        <Route path="home" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
       </Route>
