@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import API from "../../api/axios";
-// import Sidebar from "../../components/layouts/Sidebar";
 import ProjectList from "./Project";
 
 interface Project {
@@ -43,7 +42,6 @@ export default function Dashboard() {
 
   return (
     <div className="flex min-h-screen">
-      {/* <Sidebar />  */}
 
       <main className="flex-1 p-6 bg-gray-50">
         <div className="flex justify-between items-center mb-6">
@@ -58,7 +56,6 @@ export default function Dashboard() {
 
         <ProjectList projects={projects} />
 
-        {/* Add Project Modal */}
         {showModal && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-md">

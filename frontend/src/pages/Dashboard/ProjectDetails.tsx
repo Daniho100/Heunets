@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../../api/axios";
-// import Sidebar from "../../components/layouts/Sidebar";
 
 interface Task {
   _id: string;
@@ -26,7 +25,6 @@ export default function ProjectDetails() {
   const [currentTask, setCurrentTask] = useState<Task | null>(null);
   const [status, setStatus] = useState("pending");
 
-  // Fetch project details
   const fetchProject = async () => {
     try {
       const res = await API.get(`/projects/${id}`);
@@ -36,7 +34,6 @@ export default function ProjectDetails() {
     }
   };
 
-  // Fetch tasks for this project
   const fetchTasks = async () => {
     try {
       const res = await API.get(`/tasks/project/${id}`);
@@ -46,7 +43,6 @@ export default function ProjectDetails() {
     }
   };
 
-  // Add new task
   const handleAddTask = async () => {
     if (!title) return alert("Task title is required");
     try {
@@ -63,7 +59,6 @@ export default function ProjectDetails() {
     }
   };
 
-  // Delete task
   const handleDeleteTask = async (taskId: string) => {
     try {
       await API.delete(`/tasks/${taskId}`);
@@ -73,7 +68,6 @@ export default function ProjectDetails() {
     }
   };
 
-  // Open edit modal
   const handleEditTask = (task: Task) => {
     setCurrentTask(task);
     setTitle(task.title);
@@ -82,7 +76,6 @@ export default function ProjectDetails() {
     setShowEditTask(true);
   };
 
-  // Update task
   const handleUpdateTask = async () => {
     if (!currentTask) return;
     try {
@@ -151,7 +144,6 @@ export default function ProjectDetails() {
           </button>
         </div>
 
-        {/* Task List */}
         <ul>
           {tasks.map((task) => (
             <li
@@ -186,7 +178,6 @@ export default function ProjectDetails() {
           ))}
         </ul>
 
-        {/* Edit Modal Overlay */}
         {showEditTask && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-md">

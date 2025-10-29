@@ -6,7 +6,6 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you could integrate an API call to submit contact messages
     setSubmitted(true);
     setForm({ name: "", email: "", message: "" });
   };
