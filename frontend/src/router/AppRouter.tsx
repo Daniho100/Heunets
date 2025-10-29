@@ -19,6 +19,8 @@ export default function AppRouter() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/sigup" element={<Signup />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
       
       <Route
         path="/dashboard"
@@ -30,8 +32,6 @@ export default function AppRouter() {
       >
         <Route index element={<DashboardHome />} />
         <Route path="projects/:id" element={<ProjectDetails />} />
-        <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
       </Route>
     </Routes>
     <Footer />

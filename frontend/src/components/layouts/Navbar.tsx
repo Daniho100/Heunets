@@ -23,13 +23,13 @@ export default function Navbar() {
             Home
           </Link>
           <Link
-            to="/dashboard/about"
+            to="/about"
             className="text-gray-700 hover:text-green-600 font-medium transition"
           >
             About
           </Link>
           <Link
-            to="/dashboard/contact"
+            to="/contact"
             className="text-gray-700 hover:text-green-600 font-medium transition"
           >
             Contact
@@ -84,14 +84,14 @@ export default function Navbar() {
               Home
             </Link>
             <Link
-              to="/dashboard/about"
+              to="/about"
               className="text-gray-700 hover:text-green-600 font-medium transition"
               onClick={() => setMenuOpen(false)}
             >
               About
             </Link>
             <Link
-              to="/dashboard/contact"
+              to="/contact"
               className="text-gray-700 hover:text-green-600 font-medium transition"
               onClick={() => setMenuOpen(false)}
             >

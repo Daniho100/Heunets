@@ -144,39 +144,49 @@ export default function ProjectDetails() {
           </button>
         </div>
 
-        <ul>
-          {tasks.map((task) => (
-            <li
-              key={task._id}
-              className="p-2 border rounded mb-2 flex justify-between items-center"
-            >
-              <div>
-                <span className="font-semibold">{task.title}</span> - {task.description || "No description"}
-                <span
-                  className={`ml-2 font-semibold ${
-                    task.status === "completed" ? "text-green-600" : "text-yellow-600"
-                  }`}
+        <ul className="space-y-2">
+            {tasks.map((task) => (
+                <li
+                key={task._id}
+                className="p-3 border rounded-lg flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 bg-white shadow-sm"
                 >
-                  [{task.status}]
-                </span>
-              </div>
-              <div className="flex gap-2">
-                <button
-                  className="px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
-                  onClick={() => handleEditTask(task)}
-                >
-                  Edit
-                </button>
-                <button
-                  className="px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700"
-                  onClick={() => handleDeleteTask(task._id)}
-                >
-                  Delete
-                </button>
-              </div>
-            </li>
-          ))}
+                
+                <div className="flex flex-col sm:flex-row sm:items-center text-sm sm:text-base">
+                    <div>
+                    <span className="font-semibold">{task.title}</span>
+                    <span className="text-gray-600">
+                        {" "}
+                        - {task.description || "No description"}
+                    </span>
+                    </div>
+                    <span
+                    className={`mt-1 sm:mt-0 sm:ml-2 font-semibold ${
+                        task.status === "completed" ? "text-green-600" : "text-yellow-600"
+                    }`}
+                    >
+                    [{task.status}]
+                    </span>
+                </div>
+
+                
+                <div className="flex gap-2 mt-2 sm:mt-0">
+                    <button
+                    className="px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 w-full sm:w-auto"
+                    onClick={() => handleEditTask(task)}
+                    >
+                    Edit
+                    </button>
+                    <button
+                    className="px-3 py-1 text-sm bg-red-600 text-white rounded hover:bg-red-700 w-full sm:w-auto"
+                    onClick={() => handleDeleteTask(task._id)}
+                    >
+                    Delete
+                    </button>
+                </div>
+                </li>
+            ))}
         </ul>
+
 
         {showEditTask && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
