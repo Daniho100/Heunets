@@ -41,56 +41,53 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="flex min-h-screen">
+    <div className="min-h-screen bg-gray-50">
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-0">My Projects</h1>
+        <button
+          onClick={() => setShowModal(true)}
+          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full sm:w-auto"
+        >
+          Add Project
+        </button>
+      </div>
 
-      <main className="flex-1 p-6 bg-gray-50">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold">My Projects</h1>
-          <button
-            onClick={() => setShowModal(true)}
-            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-          >
-            Add Project
-          </button>
-        </div>
+      <ProjectList projects={projects} />
 
-        <ProjectList projects={projects} />
-
-        {showModal && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-md">
-              <h2 className="text-2xl font-bold mb-4">Add New Project</h2>
-              <input
-                type="text"
-                placeholder="Project Title"
-                className="w-full border p-2 rounded mb-3"
-                value={newTitle}
-                onChange={(e) => setNewTitle(e.target.value)}
-              />
-              <textarea
-                placeholder="Project Description (optional)"
-                className="w-full border p-2 rounded mb-3"
-                value={newDesc}
-                onChange={(e) => setNewDesc(e.target.value)}
-              />
-              <div className="flex justify-end gap-2">
-                <button
-                  onClick={() => setShowModal(false)}
-                  className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleAddProject}
-                  className="px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700"
-                >
-                  Add Project
-                </button>
-              </div>
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 px-4">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4">Add New Project</h2>
+            <input
+              type="text"
+              placeholder="Project Title"
+              className="w-full border p-2 rounded mb-3"
+              value={newTitle}
+              onChange={(e) => setNewTitle(e.target.value)}
+            />
+            <textarea
+              placeholder="Project Description (optional)"
+              className="w-full border p-2 rounded mb-3"
+              value={newDesc}
+              onChange={(e) => setNewDesc(e.target.value)}
+            />
+            <div className="flex flex-col sm:flex-row justify-end gap-2">
+              <button
+                onClick={() => setShowModal(false)}
+                className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 w-full sm:w-auto"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleAddProject}
+                className="px-4 py-2 rounded bg-green-600 text-white hover:bg-green-700 w-full sm:w-auto"
+              >
+                Add Project
+              </button>
             </div>
           </div>
-        )}
-      </main>
+        </div>
+      )}
     </div>
   );
 }

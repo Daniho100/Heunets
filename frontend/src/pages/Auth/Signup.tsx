@@ -66,7 +66,7 @@ export default function Signup() {
             </div>
 
             <div>
-              <label className="text-gray-700 font-medium">Password</label>
+              <label className="text-gray-700 font-medium">Password: must be 6+ characters *</label>
               <input
                 type="password"
                 required

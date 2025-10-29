@@ -1,22 +1,56 @@
-import type { FC } from "react";
+import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const Sidebar: FC = () => {
+export default function Sidebar({ closeSidebar }: { closeSidebar?: () => void }) {
   const navigate = useNavigate();
 
   return (
-    <aside className="w-64 bg-gray-800 text-white flex flex-col min-h-screen">
-      <div className="p-6 font-bold text-2xl">My Dashboard</div>
-      <nav className="flex-1 flex flex-col gap-2 p-4">
+    <aside className="h-full flex flex-col">
+      <div className="p-4 flex justify-between items-center border-b border-gray-700">
+        <h2 className="font-bold text-xl">My Dashboard</h2>
+        <button onClick={closeSidebar} className="md:hidden text-white">
+          <X className="w-6 h-6" />
+        </button>
+      </div>
+
+      <nav className="flex-1 p-4 flex flex-col gap-3">
         <button
-          onClick={() => navigate("/dashboard")}
-          className="text-left px-4 py-2 rounded hover:bg-gray-700 transition"
+          onClick={() => {
+            navigate("/dashboard");
+            closeSidebar?.();
+          }}
+          className="text-left px-3 py-2 rounded hover:bg-gray-700 transition"
         >
           Projects
+        </button>
+        <button
+          onClick={() => {
+            navigate("/dashboard/home");
+            closeSidebar?.();
+          }}
+          className="text-left px-3 py-2 rounded hover:bg-gray-700 transition"
+        >
+          Home
+        </button>
+        <button
+          onClick={() => {
+            navigate("/dashboard/about");
+            closeSidebar?.();
+          }}
+          className="text-left px-3 py-2 rounded hover:bg-gray-700 transition"
+        >
+          About
+        </button>
+        <button
+          onClick={() => {
+            navigate("/dashboard/contact");
+            closeSidebar?.();
+          }}
+          className="text-left px-3 py-2 rounded hover:bg-gray-700 transition"
+        >
+          Contact
         </button>
       </nav>
     </aside>
   );
-};
-
-export default Sidebar;
+}
