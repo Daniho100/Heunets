@@ -22,34 +22,8 @@ export default function Sidebar({ closeSidebar }: { closeSidebar?: () => void })
           className="text-left px-3 py-2 rounded hover:bg-gray-700 transition"
         >
           Projects
-        </button>
-        <button
-          onClick={() => {
-            navigate("/dashboard/home");
-            closeSidebar?.();
-          }}
-          className="text-left px-3 py-2 rounded hover:bg-gray-700 transition"
-        >
-          Home
-        </button>
-        <button
-          onClick={() => {
-            navigate("/dashboard/about");
-            closeSidebar?.();
-          }}
-          className="text-left px-3 py-2 rounded hover:bg-gray-700 transition"
-        >
-          About
-        </button>
-        <button
-          onClick={() => {
-            navigate("/dashboard/contact");
-            closeSidebar?.();
-          }}
-          className="text-left px-3 py-2 rounded hover:bg-gray-700 transition"
-        >
-          Contact
-        </button>
+        </button>       
+        
       </nav>
     </aside>
   );

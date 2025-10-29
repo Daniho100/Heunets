@@ -52,7 +52,7 @@ export default function Dashboard() {
         </button>
       </div>
 
-      <ProjectList projects={projects} />
+      <ProjectList projects={projects} onRefresh={fetchProjects} />
 
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 px-4">
