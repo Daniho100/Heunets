@@ -16,7 +16,7 @@ export const createProject = async (data: { title: string; description?: string 
 };
 
 export const updateProject = async (id: string, data: any) => {
-  const response = await axiosInstance.patch(`/projects/${id}`, data);
+  const response = await axiosInstance.put(`/projects/${id}`, data);
   return response.data;
 };
 
